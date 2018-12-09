@@ -16,7 +16,7 @@ services:
       - ./web/public:/usr/src/app/public
 
   nginx:
-    image: nginx:1.14-alpine
+    image: nginx:1.15-alpine
     depends_on:
       - web
     volumes:
