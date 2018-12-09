@@ -28,4 +28,5 @@ def hello():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=4000, debug=True, use_reloader=False)
+    app.run(host='0.0.0.0', port=4000, debug=True, use_reloader=False,
+            threaded=True)
