@@ -24,7 +24,10 @@ def hello():
     returns welcome message along with visitor count
     """
     redis.incr('count')
-    return f"Welcome! {get_count()} whales have docked here."
+    count = get_count()
+    s = 's' if count != 1 else ''
+
+    return f"Welcome! {count} whale{s} have docked here."
 
 
 if __name__ == '__main__':
