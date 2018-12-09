@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  redis:
+    image: redis:5.0-alpine3.8
+    volumes:
+      - redis:/data
+
+  web:
+    build: web
+    depends_on:
+      - redis
+    env_file:
+      - ./web/.env
+    volumes:
+      - ./web/public:/usr/src/app/public
+
+  nginx:
+    image: nginx:1.14-alpine
+    depends_on:
+      - web
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./web/public:/usr/share/nginx/html:ro
+    ports:
+      - 8080:80
+
+volumes:
+  redis:
