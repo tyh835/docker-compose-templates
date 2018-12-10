@@ -18,4 +18,7 @@ COPY . .
 
 EXPOSE 4000
 
+ENV PYTHONBUFFERED true
+ENV FLASK_APP app.py
+
 CMD uwsgi --ini conf.ini --mount /app=app:app --socket 0.0.0.0:4000
