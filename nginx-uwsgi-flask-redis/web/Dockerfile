@@ -16,4 +16,6 @@ RUN pip3 install -r requirements.txt
 
 COPY . .
 
-CMD uwsgi --ini conf.ini --mount /app=app:app
+EXPOSE 4000
+
+CMD uwsgi --ini conf.ini --mount /app=app:app --socket 0.0.0.0:4000
