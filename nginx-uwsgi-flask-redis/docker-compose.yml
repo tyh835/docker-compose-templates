@@ -7,11 +7,9 @@ services:
       - redis:/data
 
   web:
-    build: web
+    image: tyh835/hello-flask:1.0
     depends_on:
       - redis
-    env_file:
-      - ./web/.env
     volumes:
       - ./web/public:/usr/src/app/public
 
