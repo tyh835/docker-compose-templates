@@ -1,10 +1,10 @@
 """Simple Flask app connected to Redis"""
-
+import os
 from flask import Flask
 from flask_redis import FlaskRedis
 
 app = Flask(__name__)
-app.config['REDIS_URL'] = 'redis://redis:6379'
+app.config['REDIS_URL'] = f"redis://{os.getenv('REDIS_CONTAINER_NAME', 'redis')}:6379"
 
 redis = FlaskRedis(app)
 redis.set_response_callback('GET', int)

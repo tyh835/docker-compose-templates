@@ -7,9 +7,13 @@ services:
       - redis:/data
 
   web:
-    image: tyh835/hello-flask:1.0
+    image: tyh835/hello-flask:1.1
     depends_on:
       - redis
+    environment:
+      - PYTHONBUFFERED=1
+      - FLASK_APP=app.py
+      - REDIS_CONTAINER_NAME=redis
     volumes:
       - ./web/public:/usr/src/app/public
 
