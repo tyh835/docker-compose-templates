@@ -24,4 +24,4 @@ RUN apk add --no-cache --virtual .build-deps gcc python-dev musl-dev postgresql-
 
 COPY . .
 
-CMD gunicorn -b 0.0.0.0:8000 "app.app:create_app()"
+CMD gunicorn -b 0.0.0.0:8000 --access-logfile - "app.app:create_app()"
