@@ -4,6 +4,8 @@ Sample deployment configurations using Docker Compose
 
 ## nginx-uwsgi-flask-redis
 
+docker-compose version: 1.23.2
+
 Full-stack setup of Nginx + uWSGI + Flask + Redis using Docker Compose. Start the service by running: `docker-compose up -d`
 
 Nginx can also load-balance multiple Flask containers. Start multiple Flask containers by running:
