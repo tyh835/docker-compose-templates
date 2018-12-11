@@ -13,14 +13,14 @@ services:
     environment:
       - REDIS_CONTAINER_NAME=redis
     volumes:
-      - ./web/public:/usr/src/app/public
+      - ./public:/usr/src/app/public
 
   nginx:
     image: tyh835/hello-flask-nginx
     depends_on:
       - web
     volumes:
-      - ./web/public:/tmp/nginx/html:ro
+      - ./public:/tmp/nginx/html:ro
     ports:
       - 8080:80
 
