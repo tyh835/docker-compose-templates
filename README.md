@@ -6,7 +6,7 @@ Sample deployment configurations using Docker Compose
 
 docker-compose verision: 1.23.2
 
-Simple Dockerized Flask app connected to Redis and PostgreSQL. Test out the app with `docker-compose up`.
+Optimized Flask image connected to Redis and PostgreSQL. Test out the application with `docker-compose up`.
 
 By default, the application runs at `localhost:8000`.
 
