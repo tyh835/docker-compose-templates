@@ -12,6 +12,7 @@ stream_handler.setLevel(logging.INFO)
 
 db = SQLAlchemy()
 redis_store = FlaskRedis.from_custom_provider(StrictRedis)
+seeded = False
 
 page = Blueprint('page', __name__)
 
@@ -65,19 +66,24 @@ def seed():
 
     :return: Flask redirect
     """
-    db.drop_all()
-    db.create_all()
+    global seeded
 
-    messages = [
-        "Thanks good sir. I'm feeling quite healthy!",
-        'Thanks for the meal buddy.',
-        "Please stop feeding me. I'm getting huge!"
-    ]
+    if not seeded:
+        db.drop_all()
+        db.create_all()
 
-    for message in messages:
-        feedback = Feedback(message=message)
-        db.session.add(feedback)
-        db.session.commit()
+        messages = [
+            "Thanks good sir. I'm feeling quite healthy!",
+            'Thanks for the meal buddy.',
+            "Please stop feeding me. I'm getting huge!"
+        ]
+
+        for message in messages:
+            feedback = Feedback(message=message)
+            db.session.add(feedback)
+            db.session.commit()
+
+        seeded = True
 
     return redirect(url_for('page.index'))
 
