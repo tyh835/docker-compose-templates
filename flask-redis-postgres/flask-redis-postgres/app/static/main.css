@@ -1,0 +1,46 @@
+h1 {
+  color: #333;
+  font-family: Arial;
+}
+
+h3 {
+  font-weight: 400;
+}
+
+p {
+  color: #777;
+  font-size: 12px;
+  font-family: Arial;
+}
+
+i {
+  font-family: Arial;
+}
+
+
+img {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.container {
+  text-align: center;
+}
+
+.btn {
+  display: block;
+  width: 200px;
+  margin: 0 auto;
+  background: #34d94a;
+  border-radius: 18px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #26e33f;
+  text-decoration: none;
+}
