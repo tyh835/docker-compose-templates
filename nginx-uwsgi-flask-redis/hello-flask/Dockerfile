@@ -3,9 +3,7 @@ FROM alpine:3.8
 ENV PATH /usr/local/bin:$PATH
 
 RUN apk update
-RUN apk add --no-cache \
-        uwsgi-python3 \
-        python3
+RUN apk add uwsgi-python3 python3
 
 RUN pip3 install --upgrade pip
 

@@ -12,6 +12,8 @@ services:
       - redis
     environment:
       - REDIS_CONTAINER_NAME=redis
+    volumes:
+      - static_files:/usr/src/app/public
 
   nginx:
     image: tyh835/hello-flask-nginx
@@ -19,6 +21,9 @@ services:
       - web
     ports:
       - 8080:80
+    volumes:
+      - static_files:/usr/share/nginx/html
 
 volumes:
   redis:
+  static_files:
