@@ -20,4 +20,4 @@ Nginx can also load-balance multiple Flask containers. Start multiple Flask cont
 
 `docker-compose up ---scale web=NUMBER_OF_CONTAINERS`
 
-Note that by default, Nginx runs on `http://localhost:8080`, but this can be changed by configuring `docker-compose.yml`.
+Note that by default, Nginx runs on `http://localhost`, but this can be changed by configuring `docker-compose.yml`.
